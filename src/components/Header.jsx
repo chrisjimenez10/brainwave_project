@@ -1,10 +1,12 @@
 import Button from './Button';
+import ButtonGradient from '../assets/svg/ButtonGradient';
 import MenuSvg from "../assets/svg/MenuSvg";
 import { useLocation } from 'react-router-dom';
 import { brainwave } from "../assets"; //Vite uses Webpack under the hood, so we are using the built-in feature from Webpack called "file-loader/url-loader" that allows importing files as modules --> NOTE: In our assets directory, we have an index.js file that is importing ALL the files/images as modules (saved into variables) AND exporting them all so we can simply import from any other file using the variable/module name and the "/assets" directory (The importing is coming from that index.js file --> Keeps things organized)
 import { navigation } from '../constants';
 import { HamburgerMenu } from "./design/Header";
 import { useState } from 'react';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 
 const Header = () => {
@@ -14,9 +16,17 @@ const Header = () => {
     const [openNavigation, setOpenNavigation] = useState(false);
     //Function
     const toggleNavigation = () => {
-        openNavigation ? setOpenNavigation(false) : setOpenNavigation(true);
+        if(openNavigation){
+            setOpenNavigation(false);
+            enablePageScroll()
+        }else{
+            setOpenNavigation(true);
+            disablePageScroll();
+        }
     };
     const handleClick = () => {
+        if(!openNavigation) return;
+        enablePageScroll();
         //Function passed to onClick attribute to navigation links <a></a> tags, so when we click on them we exit from the Hamburger Menu UI
         setOpenNavigation(false);
     };
@@ -24,7 +34,7 @@ const Header = () => {
   return (
 
     // Here, we are creating a STICKY Header with the properties of "fixed" which removes from normal document flow and positions it relative to the viewport (visible when we scroll down/up) and with the position "top-0, left-0, w-full" we ensure it covers the FULl width of the screen and that it it's aligned at the top edge and left edge of the viewport --> NOTE: Critical to include "z-50" so that the Header is ON TOP of any other element in the screen/viewport (Bigger z-index, Higher priority/More on Top)
-    <div className={`fixed top-0 left-0 w-full z-50 bg-n-8/90 backdrop-blur-sm border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"}`}>
+    <div className={`fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"}`}>
 
         <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
 
@@ -58,7 +68,7 @@ const Header = () => {
             </Button>
 
         </div>
-        
+        <ButtonGradient />
     </div>
   )
 }
