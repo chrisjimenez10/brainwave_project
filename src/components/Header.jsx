@@ -9,7 +9,8 @@ const Header = () => {
 
   return (
 
-    <div className="fixed top-0 z-50 bg-n-8/90 backdrop-blur-sm border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm">
+    // Here, we are creating a STICKY Header with the properties of "fixed" which removes from normal document flow and positions it relative to the viewport (visible when we scroll down/up) and with the position "top-0, left-0, w-full" we ensure it covers the FULl width of the screen and that it it's aligned at the top edge and left edge of the viewport --> NOTE: Critical to include "z-50" so that the Header is ON TOP of any other element in the screen/viewport (Bigger z-index, Higher priority/More on Top)
+    <div className="fixed top-0 left-0 w-full z-50 bg-n-8/90 backdrop-blur-sm border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm">
 
         <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
 
@@ -28,6 +29,14 @@ const Header = () => {
                     })}
                 </div>
             </nav>
+
+            <a href="#signup" className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block">
+            New Account
+            </a>
+
+            <Button className="hidden lg:flex" href="#login">
+                Sign In
+            </Button>
 
         </div>
 
