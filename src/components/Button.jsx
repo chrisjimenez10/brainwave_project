@@ -1,4 +1,3 @@
-import React from 'react';
 import ButtonSvg from "../assets/svg/ButtonSvg";
 import ButtonGradient from '../assets/svg/ButtonGradient';
 
