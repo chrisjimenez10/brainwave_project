@@ -1,6 +1,5 @@
-import React from 'react'
-import ButtonGradient from "./assets/svg/ButtonGradient"
-import Button from './components/Button'
+import React from 'react';
+import Button from './components/Button';
 
 
 const App = () => {
@@ -11,15 +10,13 @@ const App = () => {
 
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
         <Button className="mt-10" href="#login">
-          Anything inside the opening/closing component are its CHILDREN, and can be passed via the children prop
-          <p>sup</p>
+          something
         </Button>
       </div>
 
-      <ButtonGradient />
     </>
     
   )
 }
 
-export default App
+export default App;
