@@ -6,6 +6,7 @@ import { brainwave } from "../assets"; //Vite uses Webpack under the hood, so we
 import { navigation } from '../constants';
 import { HamburgerMenu } from "./design/Header";
 import { useState } from 'react';
+//The npm package "scroll-lock" gives us the ability to lock/un-lock page scrolling for given elements in Mobile Devices
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
 
