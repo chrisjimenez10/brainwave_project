@@ -2,6 +2,7 @@ import { curve, heroBackground } from "../assets";
 import { robot } from "../assets";
 import Section from "./Section";
 import Button from "./Button";
+import Generating from "./Generating";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 //ScrollParallax - It's a component we can use alongside the "useRef" Hook to add any kind of effects from the parallax library (these effects are configured by attributes and kinds of components - i.e. MouseParallax, ScrollParallax)
@@ -17,13 +18,14 @@ const Hero = () => {
     className="pt-[12rem] -mt-[5.25]"
     crosses
     crossesOffset="lg:translate-y-[5.25rem]"
-    customPaddings
+    customPaddings="pt-[3rem]"
     id="hero"
     >
+        {/* Here, The "ref" prop and the value held in "parallaxRef" from useRef() Hook is being PASSED down to ANY Components that require that "ref" prop that are CHILDREN of this Parent Element --> NOTE: The ScrollParallax Component and the BackgroundCircles Component both make use of the "ref" prop and they are able to use it because they are Children of this "div" container element */}
         <div className="container relative" ref={parallaxRef}>
             <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb-[6rem]">
                 <h1 className="h1 mb-6">
-                    Explore the Possibilities of AI Chatting with Brainwave
+                    Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {""}
                     <span className="inline-block relative">Brainwave
                         <img src={curve} className="absolute top-full left-0 w-full xl:-mt-2" width={624} height={28}alt="Curve"/>
                     </span>
@@ -41,6 +43,8 @@ const Hero = () => {
                         <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]"/>
                         <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
                             <img src={robot} className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]" width={1024} height={490} alt="AI"/>
+
+                            <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2"/>
 
                             <ScrollParallax isAbsolutelyPositioned>
                                 <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
@@ -63,8 +67,10 @@ const Hero = () => {
                     <img src={heroBackground} className="w-full" width={1440} height={1800} alt="hero"/>
                 </div>
 
+                <BackgroundCircles />
             </div>
         </div>
+        <BottomLine />
     </Section>
   )
 }
