@@ -1,5 +1,6 @@
 import SectionSvg from "../assets/svg/SectionSvg";
 
+//This Section Component creates the lines with the crosses that will serve as visually separating each of our sections --> NOTE: This is a highly reusable component where we created mulitple props to customize each section of our UI - Also, we have a "children" prop because in our sections with the exception of the Header, we will be wrapping all of the content INSIDE this Section component (therefore, we need to to include all the elements that we create for those individual sections)
 const Section = ({
     className,
     id,
