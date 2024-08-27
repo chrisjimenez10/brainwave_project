@@ -3,6 +3,8 @@ import { robot } from "../assets";
 import Section from "./Section";
 import Button from "./Button";
 import Generating from "./Generating";
+import Notification from "./Notification";
+import CompanyLogos from "./CompanyLogos";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 //ScrollParallax - It's a component we can use alongside the "useRef" Hook to add any kind of effects from the parallax library (these effects are configured by attributes and kinds of components - i.e. MouseParallax, ScrollParallax)
@@ -58,6 +60,10 @@ const Hero = () => {
                                 </ul>
                             </ScrollParallax>
 
+                            <ScrollParallax isAbsolutelyPositioned>
+                                <Notification className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex" title="Code generation"/>
+                            </ScrollParallax>
+
                         </div>
                     </div>
 
@@ -68,7 +74,11 @@ const Hero = () => {
                 </div>
 
                 <BackgroundCircles />
+
             </div>
+
+            <CompanyLogos className="hidden relative z-10 mt-20 lg:block"/>
+          
         </div>
         <BottomLine />
     </Section>
