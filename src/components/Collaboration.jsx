@@ -2,6 +2,7 @@ import Section from "./Section";
 import Button from "./Button";
 import { collabApps, collabContent, collabText } from "../constants";
 import {brainwaveSymbol, check} from "../assets";
+import {LeftCurve, RightCurve} from "./design/Collaboration";
 
 const Collaboration = () => {
   return (
@@ -25,7 +26,7 @@ const Collaboration = () => {
                 <Button>Try it now</Button>
             </div>
             <div className="lg:ml-auto xl:w-[38rem] mt-4">
-                <p className="body-2 mb-4 text-n-3 md:mb-16 lg:mb-32 lg:w-[32rem] lg:mx-auto">{collabText}</p>
+                <p className="body-2 mb-8 text-n-3 md:mb-16 lg:mb-32 lg:w-[32rem] lg:mx-auto">{collabText}</p>
 
                 <div className="relative left-1/2 flex w-[22rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100">
                     <div className="flex w-60 aspect-square m-auto border border-n-6 rounded-full">
@@ -47,6 +48,9 @@ const Collaboration = () => {
                             )
                         })}
                     </ul>
+
+                    <LeftCurve />
+                    <RightCurve />
                 </div>
             </div>
         </div>
