@@ -19,6 +19,7 @@ const PricingList = () => {
                         )}
                     </div>
 
+                    {/* The double bang operator CONVERTS and RETURNS a value to an actual boolean value */}
                     <Button className="w-full mb-6" href={item.price ? "/pricing" : "mailto:contact@jsmastery.pro"} white={!!item.price}>
                         {item.price ? "Get started" : "Contact us"}
                     </Button>
